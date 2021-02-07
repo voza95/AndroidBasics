@@ -5,38 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".NotificationActivity">
 
-    <FrameLayout
-        android:id="@+id/frameContainer"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-
-    <Button
-        android:id="@+id/fragmentAdd"
+    <EditText
+        android:id="@+id/titleET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment Add"
-        android:onClick="clickHandler"/>
+        android:hint="Title"/>
 
-
-    <Button
-        android:id="@+id/fragmentRmv"
+    <EditText
+        android:id="@+id/messageET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment Remove"
-        android:onClick="removeClickHandler"/>
+        android:hint="Message"/>
 
     <Button
-        android:id="@+id/servicesBTN"
+        android:id="@+id/channelOneBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Services Text"/>
+        android:text="Send on channel 1"/>
 
     <Button
-        android:id="@+id/notificationBTN"
+        android:id="@+id/channelTwoBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notification Screen"/>
+        android:text="Send on channel 2"/>
 
 </LinearLayout>

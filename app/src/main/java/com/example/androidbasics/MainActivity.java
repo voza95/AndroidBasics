@@ -3,6 +3,7 @@ package com.example.androidbasics;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,11 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.Fra
         fragmentRmv = findViewById(R.id.fragmentRmv);
         servicesBTN = findViewById(R.id.servicesBTN);
         notificationBTN = findViewById(R.id.notificationBTN);
+
+        notificationBTN.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
+            startActivity(intent);
+        });
     }
 
 
