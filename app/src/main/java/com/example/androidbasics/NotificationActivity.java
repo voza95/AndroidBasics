@@ -60,18 +60,21 @@ public class NotificationActivity extends AppCompatActivity {
                     .setContentTitle(titleET.getText().toString())
                     .setContentText(messageET.getText().toString())
                     .setLargeIcon(largeIcon)
-                    .setStyle(new NotificationCompat.BigTextStyle()
-                            .bigText(getString(R.string.dummy_txt))
-                            .setBigContentTitle("Big content title")
-                            .setSummaryText("Summary Text")
+                    /*.setStyle(new NotificationCompat.BigTextStyle()
+                                    .bigText(getString(R.string.dummy_txt))
+                                    .setBigContentTitle("Big content title")
+                                    .setSummaryText("Summary Text")*/
+                    .setStyle(new NotificationCompat.BigPictureStyle()
+                            .bigPicture(largeIcon)
+                            .bigLargeIcon(null)
                     )
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                     .setAutoCancel(true)
                     .setOnlyAlertOnce(true)
                     .setColor(Color.BLUE)
-                    .setContentIntent(contentIntent)
-                    .addAction(R.mipmap.ic_launcher,"Toast",actionIntent);
+                    .setContentIntent(contentIntent);
+                    //.addAction(R.mipmap.ic_launcher,"Toast",actionIntent);
             Notification notification = builder.build();
 
             //id=1 will over write the same notification.
@@ -79,11 +82,14 @@ public class NotificationActivity extends AppCompatActivity {
         });
 
         channelTwoBtn.setOnClickListener(view -> {
+            Bitmap artwork = BitmapFactory.decodeResource(getResources(), R.drawable.notification);
+
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_2_ID)
                     .setSmallIcon(R.drawable.ic_two)
                     .setContentTitle(titleET.getText().toString())
                     .setContentText(messageET.getText().toString())
-                    .setStyle(new NotificationCompat.InboxStyle()
+                    .setLargeIcon(artwork)
+                   /* .setStyle(new NotificationCompat.InboxStyle()
                             .addLine("This is Line 1")
                             .addLine("This is Line 2")
                             .addLine("This is Line 3")
@@ -92,7 +98,9 @@ public class NotificationActivity extends AppCompatActivity {
                             .addLine("This is Line 6")
                             .setBigContentTitle("Big content title")
                             .setSummaryText("Summary Text")
-                    )
+                    )*/
+                    //.addAction(R.drawable.ic_like,"Like",null)
+                    .setStyle(new androidx.media.app.NotificationCompat.MediaStyle())
                     .setPriority(NotificationCompat.PRIORITY_LOW)
                     .setCategory(NotificationCompat.CATEGORY_MESSAGE);
             Notification notification = builder.build();
