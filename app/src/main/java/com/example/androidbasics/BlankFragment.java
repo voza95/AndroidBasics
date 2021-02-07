@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class BlankFragment extends Fragment {
@@ -18,6 +20,9 @@ public class BlankFragment extends Fragment {
     private static final String TAG = "BlankFragment";
     public static final String MESSAGE_KEY = "message_key";
     TextView passedTXT;
+    EditText inputValueET;
+    Button submitBTN;
+    private FragmentListener mListener;
 
     public BlankFragment() {
     }
@@ -34,6 +39,11 @@ public class BlankFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+
+        if (BuildConfig.DEBUG && !(context instanceof FragmentListener)) {
+            throw new AssertionError("Assertion failed");
+        }
+        mListener = (FragmentListener) context;
         Log.d(TAG, "onAttach");
     }
 
@@ -55,7 +65,25 @@ public class BlankFragment extends Fragment {
             passedTXT = view.findViewById(R.id.passedTXT);
             passedTXT.setText(message);
         }
+
+        inputValueET = view.findViewById(R.id.inputValueET);
+        submitBTN = view.findViewById(R.id.submitBTN);
+
+        submitBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mListener == null){
+                    throw new AssertionError();
+                }
+                String userInput = inputValueET.getText().toString();
+                mListener.onFragmentFinish(userInput);
+            }
+        });
         return view;
+    }
+
+    public interface FragmentListener {
+        void onFragmentFinish(String userInput);
     }
 
     @Override

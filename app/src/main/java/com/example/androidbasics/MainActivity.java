@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BlankFragment.FragmentListener {
 
     Button fragmentAdd,fragmentRmv,servicesBTN,notificationBTN;
 
@@ -53,5 +54,10 @@ public class MainActivity extends AppCompatActivity {
                     .remove(blankFragment)
                     .commit();
         }
+    }
+
+    @Override
+    public void onFragmentFinish(String userInput) {
+        Toast.makeText(this, userInput , Toast.LENGTH_SHORT).show();
     }
 }
