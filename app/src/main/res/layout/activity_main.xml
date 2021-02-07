@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <Button
+        android:id="@+id/fragmentAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Add"
+        android:onClick="clickHandler"/>
+
+
+    <Button
+        android:id="@+id/fragmentRmv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Remove"
+        android:onClick="removeClickHandler"/>
+
+    <Button
+        android:id="@+id/servicesBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Services Text"/>
+
+    <Button
+        android:id="@+id/notificationBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification Button"/>
+
+</LinearLayout>
